@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TeamCard from "../components/TeamCard.astro";
+---
+
+<Layout>
+
+    <div slot="head" id="head">
+        <h1>Unser Team</h1>
+        <div id="intro">
+            <p>
+                Text text text text text text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text text text text text
+            </p>
+            <img src="https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/55/95/55958815-3a8a-4032-ac7a-ff8c8ec8898a/gettyimages-1067956982.jpg"/>
+        </div>
+    </div>
+
+    <div id="card-collection">
+        <h2>Gruppe 1</h2>
+        <div class="cards">
+            <TeamCard name="kitty cat" role="chief meower"
+                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+            <TeamCard name="kitty cat" role="chief meower"
+                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+            <TeamCard name="kitty cat" role="chief meower"
+                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+        </div>
+        <h2>Gruppe 2</h2>
+        <div class="cards">
+            <TeamCard name="kitty cat" role="chief meower"
+                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+            <TeamCard name="kitty cat" role="chief meower"
+                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+            <TeamCard name="kitty cat" role="chief meower"
+                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+        </div>
+    </div>
+
+</Layout>
+
+<style>
+    #head {
+        margin: 50px 15%;
+    }
+
+    #intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        filter: brightness(80%);
+    }
+
+    h2 {
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    #card-collection {
+        margin: 0 15%;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5%;
+    }
+</style>

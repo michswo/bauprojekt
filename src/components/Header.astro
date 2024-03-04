@@ -1,0 +1,43 @@
+---
+const currentPath = new URL(Astro.request.url).pathname;
+---
+<header>
+    <img alt="logo"
+         src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1">
+
+    <a class={currentPath === "/" ? "active" : ""} href="/">Startseite</a>
+    <a class={currentPath === "/referenzen" ? "active" : ""} href="/referenzen">Referenzen</a>
+    <a class={currentPath === "/team" ? "active" : ""} href="/team">Team</a>
+    <a class={currentPath === "/angebot" ? "active" : ""} href="/angebot">Angebot</a>
+    <a class={currentPath === "/karriere" ? "active" : ""} href="/karriere">Karriere</a>
+    <a class={currentPath === "/kontakt" ? "active" : ""} href="/kontakt">Kontakt</a>
+
+</header>
+
+<style>
+    header {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: clip;
+        height: 60px;
+        gap: 60px;
+        padding-right: 30px;
+        align-items: center;
+    }
+
+    img {
+        margin-right: auto;
+        max-height: 100%;
+    }
+
+    a {
+        text-align: center;
+        text-decoration: none;
+        color: dimgray;
+    }
+
+    a.active {
+        color: black;
+    }
+</style>
