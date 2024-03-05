@@ -1,5 +1,11 @@
 ---
-const {image, name, role} = Astro.props;
+interface Props {
+    image: string;
+    name: string;
+    position: string;
+}
+
+const {image, name, position} = Astro.props;
 ---
 <div id="container">
     <div id="image-container">
@@ -7,7 +13,7 @@ const {image, name, role} = Astro.props;
     </div>
     <div id="text">
         <span><b>{name}</b></span>
-        <span>{role}</span>
+        <span>{position}</span>
     </div>
 </div>
 
