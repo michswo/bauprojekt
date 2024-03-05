@@ -49,6 +49,9 @@ const {topBg = "white", topFilter = "", stripeBg = "var(--yellow)", bottomBg = "
         padding: 0;
         box-sizing: border-box;
     }
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
 
     img {
         border-radius: 20px;
@@ -61,6 +64,13 @@ const {topBg = "white", topFilter = "", stripeBg = "var(--yellow)", bottomBg = "
     h2 {
         color: white;
         font-size: 40px;
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        src: url('/fonts/Poppins-Regular.ttf') format('ttf');
     }
 </style>
 <style define:vars={{topBg, topFilter, stripeBg, bottomBg}}>
