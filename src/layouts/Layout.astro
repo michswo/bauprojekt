@@ -27,7 +27,9 @@ const {topBg = "white", topFilter = "", stripeBg = "var(--yellow)", bottomBg = "
     <Header/>
     <div id="page-head">
         <div id="head-bg"></div>
-        <slot name="head"/>
+        <div id="head-slot">
+            <slot name="head"/>
+        </div>
     </div>
     <div id="content">
         <slot/>
@@ -73,6 +75,11 @@ const {topBg = "white", topFilter = "", stripeBg = "var(--yellow)", bottomBg = "
     #page-head {
         position: relative;
         width: 100%;
+        padding: 50px 0 100px 0;
+    }
+
+    #head-slot {
+        margin: 0 15%;
     }
 
     #head-bg {
