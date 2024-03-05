@@ -3,7 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import TeamCard from "../components/TeamCard.astro";
 ---
 
-<Layout>
+<Layout topBg="url('https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/55/95/55958815-3a8a-4032-ac7a-ff8c8ec8898a/gettyimages-1067956982.jpg')"
+        topFilter="blur(5px) opacity(60%)">
 
     <div slot="head" id="head">
         <h1>Unser Team</h1>
@@ -36,12 +37,11 @@ import TeamCard from "../components/TeamCard.astro";
                       image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
         </div>
     </div>
-
 </Layout>
 
 <style>
     #head {
-        margin: 50px 15%;
+        margin: 50px 15% 80px 15%;
     }
 
     #intro {
