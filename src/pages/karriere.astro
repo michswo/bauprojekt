@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CollapsibleCard from "../components/CollapsibleCard.astro";
 ---
 
 <Layout>
@@ -9,4 +10,35 @@ import Layout from '../layouts/Layout.astro';
             text text text text text text text text text text text text text text
             text text text text text text text text text text text text text text text text text text text text text</p>
     </div>
+    <div id="positions">
+        <CollapsibleCard title="neuer web entwickler">
+            <p>css pseudo elemente machen mich traurig, ich mag nicht mehr.</p>
+            <p>aber guck, ausklappbare karten, wenigstens was</p>
+        </CollapsibleCard>
+        <CollapsibleCard title="colin ersatz">
+            <p>arbeitszeit ca. 20h/woche, aber nur 1x im monat</p>
+            <p>120 tage urlaub, plus freitags und jeder zweite montag</p>
+        </CollapsibleCard>
+        <CollapsibleCard title="jemand der die website kaputt macht">
+            <p>war nur spaß, die karte ist robust</p>
+            <ul>
+                <li>guck</li>
+                <li>hier</li>
+                <li>aufzählung</li>
+            </ul>
+        </CollapsibleCard>
+    </div>
 </Layout>
+
+<style>
+    #positions {
+        margin: 0 15%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    li {
+        list-style-position: inside;
+    }
+</style>
