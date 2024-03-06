@@ -3,8 +3,9 @@ interface Props {
     title: string;
 }
 
-const {title} = Astro.props;
+const { title } = Astro.props;
 ---
+
 <my-collapsible>
     <button type="button">
         <span>{title}</span>
@@ -12,7 +13,7 @@ const {title} = Astro.props;
     </button>
     <div id="content">
         <div style="padding: 15px;">
-            <slot/>
+            <slot />
         </div>
     </div>
 </my-collapsible>
@@ -22,18 +23,21 @@ const {title} = Astro.props;
         constructor() {
             super();
 
-            const button = this.querySelector("button")
-            const content: HTMLDivElement = this.querySelector("#content")
-            const icon: HTMLSpanElement = this.querySelector("#icon")
+            const button = this.querySelector<HTMLButtonElement>("button");
+            const content = this.querySelector<HTMLDivElement>("#content");
+            const icon = this.querySelector<HTMLSpanElement>("#icon");
+            if (button === null) throw Error("button not found");
+            if (content === null) throw Error("content not found");
+            if (icon === null) throw Error("icon not found");
             button.addEventListener("click", () => {
                 if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
+                    content.style.maxHeight = "";
                     icon.textContent = "+";
                 } else {
                     content.style.maxHeight = content.scrollHeight + "px";
                     icon.textContent = "–"; // warning: en dash, not -
                 }
-            })
+            });
         }
     }
 
