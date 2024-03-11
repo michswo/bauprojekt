@@ -1,0 +1,103 @@
+---
+interface Props {
+    title: string;
+    byline: string;
+    bubbles: {
+        text: string;
+        icon?: string;
+    }[];
+    headImageUrl: string;
+    extraImageUrls: string[];
+}
+
+const {title, byline, bubbles, headImageUrl, extraImageUrls} = Astro.props;
+const numImages = extraImageUrls.length;
+const headImageUrlStyle = `background-image: url(${headImageUrl});`
+---
+
+<div id="grid">
+    <div id="head-image" style={headImageUrlStyle}>
+        <div id="overlay">
+            <h2>{title}</h2>
+            <span id="byline">{byline}</span>
+            <div id="bubbles">
+                {bubbles.map(({text, icon}) => <span class="bubble">
+                    {icon === undefined ? "" : <img src={icon} alt="icon">}
+                    {text}
+                </span>)}
+            </div>
+        </div>
+    </div>
+    {
+        extraImageUrls.map(url => `background-image: url(${url});`).map(style =>
+                <div style={style}></div>)
+    }
+</div>
+
+<style define:vars={{numImages}}>
+    #grid {
+        display: grid;
+        grid-template-rows: 1.5fr 1fr;
+        grid-template-columns: repeat(var(--numImages), 1fr);
+        aspect-ratio: 5 / 3;
+        overflow: hidden;
+        gap: 10px;
+    }
+
+    #head-image {
+        grid-column: 1 / -1;
+        position: relative;
+    }
+
+    #head-image:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    #grid > div {
+        background-size: cover;
+        background-position: center;
+        border-radius: 20px;
+    }
+
+    #overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: 10px;
+    }
+
+    #byline {
+        color: white;
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    #bubbles {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .bubble {
+        color: black;
+        background: white;
+        display: flex;
+        padding: 5px 15px;
+        border-radius: 50px;
+        align-items: center;
+        gap: 5px;
+        font-weight: 600;
+    }
+
+    .bubble > img {
+        height: 16px;
+    }
+</style>

@@ -1,7 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ImageGrid from "../components/ImageGrid.astro";
 ---
 
 <Layout>
-
+    <div id="content">
+        <ImageGrid
+                title="cat gallery"
+                byline="CAT cat cat cat"
+                headImageUrl="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg"
+                extraImageUrls={[
+                    "https://www.wondercide.com/cdn/shop/articles/Upside_down_gray_cat.png?v=1685551065",
+                    "https://bestfriends.org/sites/default/files/styles/hero_mobile/public/hero-dash/Asana3808_Dashboard_Standard.jpg?h=ebad9ecf&itok=cWevo33k",
+                    "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
+                ]}
+                bubbles={[
+                    {text: "meow", icon: "/icons/clock-regular.svg"},
+                    {text: "meow meow", icon: "/icons/hashtag-solid.svg"},
+                    {text: "=^-^="}
+                ]}
+        >
+        </ImageGrid>
+    </div>
 </Layout>
+
+<style>
+    #content {
+        margin: 0 15%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+</style>
