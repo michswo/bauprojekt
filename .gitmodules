@@ -1,0 +1,3 @@
+[submodule "public/CSSBox"]
+	path = public/CSSBox
+	url = https://github.com/TheLastProject/CSSBox.git
