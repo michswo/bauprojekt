@@ -21,6 +21,22 @@ import ImageGrid from "../components/ImageGrid.astro";
                 ]}
         >
         </ImageGrid>
+        <ImageGrid
+                title="cat gallery"
+                byline="CAT cat cat cat"
+                headImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg"
+                extraImageUrls={[
+                    "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+                    "https://d3544la1u8djza.cloudfront.net/APHI/Blog/2016/10_October/persians/Persian+Cat+Facts+History+Personality+and+Care+_+ASPCA+Pet+Health+Insurance+_+white+Persian+cat+resting+on+a+brown+sofa-min.jpg",
+                    "https://d3544la1u8djza.cloudfront.net/APHI/Blog/2020/07-23/How+Much+Does+It+Cost+to+Have+a+Cat+_+ASPCA+Pet+Insurance+_+black+cat+with+yellow+eyes+peeking+out-min.jpg"
+                ]}
+                bubbles={[
+                    {text: "meow", icon: "/icons/clock-regular.svg"},
+                    {text: "meow meow", icon: "/icons/hashtag-solid.svg"},
+                    {text: "=^-^="}
+                ]}
+        >
+        </ImageGrid>
     </div>
 </Layout>
 
@@ -29,6 +45,6 @@ import ImageGrid from "../components/ImageGrid.astro";
         margin: 0 15%;
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 100px;
     }
 </style>
