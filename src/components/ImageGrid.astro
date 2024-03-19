@@ -29,19 +29,8 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
         </div>
     </div>
     {
-        extraImageUrls.map(url => [url, `background-image: url(${url});`]).map(([url, style], idx) =>
-                <div class="cssbox">
-                    <a id={"image" + idx} href={"#image" + idx} class="cssbox_link">
-                        <div class="cssbox_thumb" style={style}></div>
-                        <span class="cssbox_full">
-                            <img src={url} alt={title + ", Bild " + idx}>
-                        </span>
-                    </a>
-                    <a class="cssbox_close" href="#"></a>
-                    {idx === 0 ? "" : <a class="cssbox_prev" href={"#image" + (idx - 1)}>&lt;</a>}
-                    {idx === numImages - 1 ? "" : <a class="cssbox_next" href={"#image" + (idx + 1)}>&gt;</a>}
-                </div>
-        )
+        extraImageUrls.map(url => `background-image: url(${url});`).map(style =>
+                <div style={style}></div>)
     }
 </div>
 
@@ -71,7 +60,7 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
         background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.85) 100%);
     }
 
-    #head-image, .cssbox_thumb {
+    #grid > div {
         background-size: cover;
         background-position: center;
         border-radius: 20px;
@@ -110,11 +99,5 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
 
     .bubble > img {
         height: 16px;
-    }
-
-    .cssbox_link, .cssbox_thumb {
-        width: 100%;
-        height: 100%;
-        display: block;
     }
 </style>
