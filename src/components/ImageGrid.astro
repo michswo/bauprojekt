@@ -138,10 +138,23 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
         font-weight: 600;
     }
 
+    @media (max-width: 400px) {
+        #byline {
+            display: none;
+        }
+    }
+
     #bubbles {
         display: flex;
         flex-direction: row;
         gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 600px) {
+        #bubbles {
+            display: none;
+        }
     }
 
     .bubble {
