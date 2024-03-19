@@ -15,7 +15,7 @@ const numImages = extraImageUrls.length;
 const headImageUrlStyle = `background-image: url(${headImageUrl});`
 ---
 
-<div id="grid">
+<div id="image-grid">
     <div id="head-image" style={headImageUrlStyle}>
         <div id="overlay">
             <h2>{title}</h2>
@@ -34,8 +34,12 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
     }
 </div>
 
+<script>
+    console.log(document.querySelectorAll("#image-grid"))
+</script>
+
 <style define:vars={{numImages}}>
-    #grid {
+    #image-grid {
         display: grid;
         grid-template-rows: 1.5fr 1fr;
         grid-template-columns: repeat(var(--numImages), 1fr);
@@ -60,10 +64,16 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
         background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.85) 100%);
     }
 
-    #grid > div {
+    #image-grid > div {
         background-size: cover;
         background-position: center;
         border-radius: 20px;
+        cursor: pointer;
+        transition: filter 0.1s ease-in-out;
+    }
+
+    #image-grid > div:hover {
+        filter: brightness(0.8);
     }
 
     #overlay {
