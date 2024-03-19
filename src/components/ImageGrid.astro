@@ -33,9 +33,57 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
                 <div style={style}></div>)
     }
 </div>
+<div id="image-grid-overlay">
+    <div id="close">X</div>
+    <div id="prev">&lt;</div>
+    <div id="next">&gt;</div>
+    <div id="image-grid-overlay-image-container">
+        <img src="">
+    </div>
+</div>
 
 <script>
-    console.log(document.querySelectorAll("#image-grid"))
+    function isDiv(element: Element | null): element is HTMLDivElement {
+        return element instanceof HTMLDivElement;
+    }
+
+    function getButton(parent: HTMLElement, selector: string) {
+        const button = parent.querySelector(selector);
+        // TODO should buttons be.... buttons?
+        if (!isDiv(button)) throw Error("implementation error: button is not a div");
+        return button;
+    }
+
+    function setImage(overlay: HTMLDivElement, imageDivs: HTMLDivElement[], index: number) {
+        overlay.style.visibility = "visible";
+        overlay.style.opacity = "1";
+        const srcStyle = imageDivs[index]?.style.backgroundImage;
+        if (!srcStyle) throw Error("could not determine image url");
+        const image = overlay.querySelector("img");
+        if (!(image instanceof HTMLImageElement)) throw Error("implementation error: image element not found")
+        image.src = srcStyle.substring(5, srcStyle.length - 2);
+        getButton(overlay, "#prev").style.visibility = index === 0 ? "hidden" : "visible";
+        getButton(overlay, "#next").style.visibility = index === imageDivs.length - 1 ? "hidden" : "visible";
+    }
+
+    document.querySelectorAll("#image-grid").forEach(grid => {
+        const imageDivs = [...grid.children].filter(isDiv);
+        const myOverlay = grid.nextElementSibling;
+        if (!isDiv(myOverlay)) throw Error("implementation error: overlay is not a div");
+        let currentIndex = 0;
+        imageDivs.forEach((div, index) => {
+            div.addEventListener("click", () => {
+                currentIndex = index;
+                setImage(myOverlay, imageDivs, currentIndex);
+            })
+        });
+        getButton(myOverlay, "#close").addEventListener("click", () => {
+            myOverlay.style.visibility = "hidden";
+            myOverlay.style.opacity = "0";
+        });
+        getButton(myOverlay, "#prev").addEventListener("click", () => setImage(myOverlay, imageDivs, --currentIndex));
+        getButton(myOverlay, "#next").addEventListener("click", () => setImage(myOverlay, imageDivs, ++currentIndex));
+    })
 </script>
 
 <style define:vars={{numImages}}>
@@ -109,5 +157,61 @@ const headImageUrlStyle = `background-image: url(${headImageUrl});`
 
     .bubble > img {
         height: 16px;
+    }
+
+    #image-grid-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity .25s ease-in-out, visibility 0s;
+    }
+
+    #image-grid-overlay > #image-grid-overlay-image-container {
+        position: absolute;
+        width: 90%;
+        left: 5%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+    }
+
+    #image-grid-overlay > #image-grid-overlay-image-container > img {
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    #image-grid-overlay:hover {
+        transition: opacity .25s ease-in-out, visibility 0s 0.25s;
+    }
+
+    #image-grid-overlay > :is(#close, #prev, #next) {
+        position: absolute;
+        /* TODO use proper icons */
+        font-size: 40px;
+        font-weight: bold;
+        user-select: none;
+        cursor: pointer;
+        color: white;
+    }
+
+    #image-grid-overlay > :is(#close, #next) {
+        right: 25px;
+    }
+
+    #image-grid-overlay > #prev {
+        left: 25px;
+    }
+
+    #image-grid-overlay > :is(#prev, #next) {
+        top: 50%;
+        transform: translateY(-50%);
     }
 </style>
