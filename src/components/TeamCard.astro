@@ -1,15 +1,20 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 interface Props {
-    image: string;
+    imagePath: string;
     name: string;
     position: string;
 }
 
-const {image, name, position} = Astro.props;
+const {imagePath, name, position} = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 <div id="container">
     <div id="image-container">
-        <img src={image} alt={name}/>
+        <Image src={images[imagePath]()} alt={name} />
     </div>
     <div id="text">
         <span style="font-weight: bold;">{name}</span>
@@ -17,7 +22,7 @@ const {image, name, position} = Astro.props;
     </div>
 </div>
 
-<style define:vars={{image}}>
+<style define:vars={{imagePath}}>
     #container {
         position: relative;
         color: white;

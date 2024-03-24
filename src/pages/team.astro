@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TeamCard from "../components/TeamCard.astro";
+
 ---
 
 <Layout topBg="url('https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/55/95/55958815-3a8a-4032-ac7a-ff8c8ec8898a/gettyimages-1067956982.jpg')"
@@ -20,22 +21,15 @@ import TeamCard from "../components/TeamCard.astro";
     <div id="card-collection">
         <h2>Gruppe 1</h2>
         <div class="cards">
+            <TeamCard name="Dominic" position="Head of Sklaventreiber"
+                      imagePath="/src/assets/team1.jpg"></TeamCard>
             <TeamCard name="kitty cat" position="chief meower"
-                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+                      imagePath="/src/assets/team1.jpg"></TeamCard>
             <TeamCard name="kitty cat" position="chief meower"
-                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
-            <TeamCard name="kitty cat" position="chief meower"
-                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
+                      imagePath="/src/assets/team1.jpg"></TeamCard>
         </div>
         <h2>Gruppe 2</h2>
-        <div class="cards">
-            <TeamCard name="kitty cat" position="chief meower"
-                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
-            <TeamCard name="kitty cat" position="chief meower"
-                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
-            <TeamCard name="kitty cat" position="chief meower"
-                      image="https://www.lismore.nsw.gov.au/files/assets/public/v/1/1.-households/3.-pets-amp-animals/images/kitten.jpg?w=1200"></TeamCard>
-        </div>
+
     </div>
 </Layout>
 
