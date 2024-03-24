@@ -14,7 +14,8 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 ---
 <div id="container">
     <div id="image-container">
-        <Image src={images[imagePath]()} alt={name} />
+        <!--TODO type guard instead of asserting-->
+        <Image src={images[imagePath]!()} alt={name}/>
     </div>
     <div id="text">
         <span style="font-weight: bold;">{name}</span>
