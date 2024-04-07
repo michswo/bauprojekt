@@ -2,6 +2,87 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
+<!--suppress HtmlFormInputWithoutLabel -->
 <Layout>
-
+    <form method="post" id="contact-form">
+        <!--TODO required fields-->
+        <h2 class="wide">Schreiben Sie uns!</h2>
+        <input name="firma" placeholder="Firma" class="wide"/>
+        <input name="anrede" placeholder="Anrede*">
+        <input name="titel" placeholder="Titel">
+        <input name="vorname" placeholder="Vorname*">
+        <input name="nachname" placeholder="Nachname*">
+        <input name="email" placeholder="E-Mail*" type="email">
+        <input name="telefon" placeholder="E-Telefon/Mobil">
+        <div class="wide" style="height: 20px"><!--spacer--></div>
+        <input name="betreff" placeholder="Betreff*" class="wide">
+        <textarea name="text" placeholder="Ihre Nachricht*" class="wide"></textarea>
+        <span hidden class="wide success">Vielen Dank für Ihre Nachricht.</span>
+        <span hidden class="wide error">Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.</span>
+        <button type="submit" class="wide">Senden</button>
+    </form>
 </Layout>
+
+<script>
+    window.addEventListener("load", () => {
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const params = Object.fromEntries(urlSearchParams.entries());
+        const status = params["form-mailer"];
+        if (!status) return;
+        const className = status === "success" ? "success" : "error";
+        document.querySelectorAll(`#contact-form > .${className}`).forEach(element => element.removeAttribute("hidden"));
+    })
+</script>
+
+<style>
+    form {
+        background: white;
+        border-radius: 20px;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    h2 {
+        color: var(--gray);
+    }
+
+    input, textarea {
+        padding: 10px;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+        background: linear-gradient(to bottom, #ddd 0%, #eee 25%, #fff 100%);
+        resize: none;
+    }
+
+    .wide {
+        grid-column: 1 / -1;
+    }
+
+    textarea {
+        height: 200px;
+        font-family: Poppins, sans-serif;
+    }
+
+    button {
+        background: var(--yellow);
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .success {
+        color: green;
+    }
+
+    .error {
+        color: crimson;
+    }
+</style>
