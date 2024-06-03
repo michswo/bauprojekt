@@ -17,8 +17,12 @@ html {
 :root {
     --gray: #323237;
     --yellow: #FCBB40;
+    --text-light: #eee;
+    --text-dark: var(var(--gray));
     --stripeBg: var(--yellow);
     --stripeBottomBg: var(--gray);
+    --topBg: #fff;
+    --bottomBg: var(--gray);
 }
 
 @font-face {
@@ -41,6 +45,10 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     color: #2f2f34;
+}
+
+.light-text{
+    color: var(--text-light);
 }
 
 main {
@@ -90,6 +98,17 @@ a:hover{
     }
 }
 
+.transition{
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.24s ease-out;
+  }
+
+.section{
+    margin: 75px 0;
+}
+
 #teaser{
     width: 100%;
     min-height: 600px;
@@ -98,7 +117,7 @@ a:hover{
 
 #content {
     position: relative;
-    padding-top: 120px;
+    padding: 1px 0; /* offset, hack for section margins */
     background: var(--gray);
     min-height: 80vh;
     margin-bottom: 60px; /* offset border-round */
@@ -116,5 +135,31 @@ a:hover{
     z-index: 5;
 }
 
+ul{
+    padding-left: 20px;
+}
 
+li{
+    padding-bottom: 5px;
+}
 
+.round-img{
+    border-radius: 25px;
+}
+
+.cta-btn{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    background: #eee;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+.cta-btn:hover{
+    color: #eee;
+    background: #161618;
+    cursor: pointer;
+}

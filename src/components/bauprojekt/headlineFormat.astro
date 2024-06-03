@@ -3,9 +3,10 @@
 interface Props {
     sub: string;
     main: string;
+    color: string;
 }
 
-const {sub, main} = Astro.props;
+const {sub, main, color} = Astro.props;
 ---
     <div class="headline-format">
         <div class="sub-headline">
@@ -17,8 +18,9 @@ const {sub, main} = Astro.props;
     </div>
 
 
-<style>
+<style define:vars={{color}}>
     .headline-format{
+        padding-bottom: 25px;
         text-align: center;
     }
     .sub-headline{
@@ -27,5 +29,6 @@ const {sub, main} = Astro.props;
     }
     .main-headline{
         font-size: 36px;
+        color: var(--color);
     }
 </style>

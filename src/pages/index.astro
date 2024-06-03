@@ -5,6 +5,9 @@ import Footer from "../components/Footer.astro";
 
 import HomeServices from '../components/home/services.astro';
 import HomePlanning from '../components/home/planning.astro';
+import HomeScopeServices from '../components/home/scope.astro';
+import HomeReferences from '../components/home/references.astro';
+import HomeConsulting from '../components/home/consulting.astro';
 //const {topBg = "white", topFilter = "", stripeBg = "var(--yellow)", bottomBg = "var(--gray)"} = Astro.props;
 ---
 
@@ -21,16 +24,19 @@ import HomePlanning from '../components/home/planning.astro';
 <body>
     <Header/>
     <main>
-            <div id="teaser"></div>
-            <div id="services">
-                <div class="container">
-                    <HomeServices />
-                </div>
-                
+        <div id="teaser"></div>
+        <div id="services">
+            <div class="container">
+                <HomeServices />
             </div>
-            <div id="content">
-                <HomePlanning />
-            </div>
+            
+        </div>
+        <div id="content">
+            <HomePlanning />
+            <HomeScopeServices />
+            <HomeReferences />
+            <HomeConsulting />
+        </div>
     </main>
     <Footer/>
 </body>
