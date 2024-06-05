@@ -1,13 +1,9 @@
 ---
 ---
-<footer>
+<footer class="card-section yellow">
   
-    <div id="main-footer">
+    <div id="main-footer" >
         <div class="container">
-            <div id="logo">
-                <img alt="Bauprojekt GmbHby FMC-Köhler" src="/img/logo.svg" height="75">
-            </div>
-            
             <div id="footer-infos">
                 <div id="footer-block">
                     <div>
@@ -44,6 +40,18 @@
                         </div>
                     </div>
                 </div>
+                <div id="footer-block">
+                    <div>
+                        <div class="footer-headline">
+                            Informationen
+                        </div>
+                        <div>
+                            <a href="">Karriere</a> <br>
+                            <a href="">Impressum</a> <br>   
+                            <a href="">Datenschatzerklärung</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -53,29 +61,20 @@
             <div>
                 © Bauprojekt GmbH by FMC Köhler
             </div>
-            <div class=" footer-legals">
-                <a href="">
-                    Impressum
-                </a>
-                <a href="">
-                    Datenschatzerklärung
-                </a>
-            </div>
         </div>
     </div>
 
 </footer>
 
 <style>
-    footer {
-        padding: 50px 0 0;
+    footer.card-section{
+        padding: 0;
     }
     footer a{
         color: var(--gray);
         text-decoration: none;
     }
     footer a:hover{
-        color: var(--yellow);
         text-decoration: underline;
     }
 
@@ -83,14 +82,9 @@
     #main-footer{
         padding: 25px 0;
     }
-    #main-footer > .container{
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 45px;
-    }
     #footer-infos{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
         gap: 30px;
     }
     .footer-headline{
@@ -100,11 +94,13 @@
     }
     /* sub footer*/
     #sub-footer{
-        padding: 25px 0 45px;
-        border-top: 1px solid #eee;
+        
+        
     }
     #sub-footer > .container{
         display: flex;
+        padding: 25px 0 45px;
+        border-top: 1px solid var(--gray);
         justify-content: space-between;
     }
     .footer-legals{

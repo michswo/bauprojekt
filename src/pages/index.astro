@@ -5,9 +5,8 @@ import Footer from "../components/Footer.astro";
 
 import HomeServices from '../components/home/services.astro';
 import HomePlanning from '../components/home/planning.astro';
-import HomeScopeServices from '../components/home/scope.astro';
+import HomeRequirements from '../components/home/requirements.astro';
 import HomeReferences from '../components/home/references.astro';
-import HomeConsulting from '../components/home/consulting.astro';
 //const {topBg = "white", topFilter = "", stripeBg = "var(--yellow)", bottomBg = "var(--gray)"} = Astro.props;
 ---
 
@@ -24,18 +23,27 @@ import HomeConsulting from '../components/home/consulting.astro';
 <body>
     <Header/>
     <main>
-        <div id="teaser"></div>
-        <div id="services">
+        <div id="teaser" class="teaser" style="background-image: url('/src/assets/teaser_home.jpg')">
             <div class="container">
-                <HomeServices />
+                <div id="layer">
+                    <h1>
+                        Ihr Partner
+                        <span>für gewerblichen Ausbau</span>
+                    </h1>
+                </div>
             </div>
-            
         </div>
-        <div id="content">
+        <div class="card-section light">
+            <HomeServices />
+        </div>
+        <div class="card-section dark">
             <HomePlanning />
-            <HomeScopeServices />
+        </div>
+        <div class="card-section light">
+            <HomeRequirements />
+        </div>
+        <div class="card-section dark">
             <HomeReferences />
-            <HomeConsulting />
         </div>
     </main>
     <Footer/>
@@ -43,22 +51,16 @@ import HomeConsulting from '../components/home/consulting.astro';
 </html>
 
 <style>
-    #services{
+    #teaser{
         position: relative;
-        min-height: 100px;
-        padding: 10px 0 55px;
-        background: #fff;
+        background-size: cover;
+        
     }
-    #services::before {
-        position: absolute;
-        content: "";
-        height: 60px;
-        width: 100%;
-        top: -60px;
-        background: #fff;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        z-index: 5;
+    #layer{
+        display: inline-block;
+        padding: 25px 35px;
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+        background-color: rgba(255, 255, 255, 0.3); 
     }
-
 </style>
