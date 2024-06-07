@@ -18,18 +18,6 @@ const currentPath = new URL(Astro.request.url).pathname;
         </div>
     </div>
 </header>
-<svg width="0" height="30">
-    <defs>
-      <clipPath id="myCurve" clipPathUnits="objectBoundingBox">
-        <path d="M 0,1
-                L 0,0
-                L 1,0
-                L 1,1
-                C .65 .8, .35 .8, 0 1
-                Z" />
-      </clipPath>
-    </defs>
-  </svg>
 
 <style>
     header {
@@ -39,7 +27,7 @@ const currentPath = new URL(Astro.request.url).pathname;
         padding: 20px 0;
         background: #fff;
         z-index: 150;
-        /*clip-path: url(#myCurve);*/
+        mask-image: radial-gradient(ellipse 100% 60px at center bottom, transparent 50%, black 51%);
     }
 
     img {
