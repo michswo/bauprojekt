@@ -4,8 +4,8 @@ import ImageGrid from "../components/ImageGrid.astro";
 ---
 
 <Layout>
-    <div class="container" id="gallery">
-        <div class="section">
+    <div class="card-section dark " id="gallery">
+        <div class="container">
             <ImageGrid
                 title="cat gallery"
                 byline="CAT cat cat cat"
@@ -23,7 +23,7 @@ import ImageGrid from "../components/ImageGrid.astro";
             >
             </ImageGrid>
         </div>
-        <div class="section">
+        <div class="container">
             <ImageGrid
                     title="cat gallery"
                     byline="CAT cat cat cat"
@@ -49,5 +49,6 @@ import ImageGrid from "../components/ImageGrid.astro";
     #gallery {
         display: flex;
         flex-direction: column;
+        padding: 30px 0;
     }
 </style>

@@ -24,16 +24,7 @@ interface Props {
 <body>
     <Header/>
     <main>
-        <div id="page-head">
-            <div id="head-bg"></div>
-            <div id="head-slot" class="container">
-                <slot name="head"/>
-            </div>
-        </div>
-        <div id="content">
-            <slot/>
-            
-        </div>
+        <slot/>
     </main>
     <Footer/>
 </body>
